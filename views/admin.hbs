@@ -1,0 +1,180 @@
+<div class="container primer-div">
+
+{{> paneladmin}}
+
+{{!-- Mostramos los Productos en la Tabla --}}
+<div class="container">
+        <div class="table-responsive">
+    <table class="table table-striped text-white" id="mytable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Desarrollador</th>
+                <th>Lanzamiento</th>
+                <th>Plataforma</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Panel Admin</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each results}}
+            <tr>
+                <td class="text-white">{{gm_id}}</td>
+                <td class="text-white">{{gm_name}}</td>
+                <td class="text-white">{{gm_dev}}</td>
+                <td class="text-white">{{gm_release}}</td>
+                <td class="text-white">{{gm_device}}</td>
+                <td class="text-white">{{gm_category}}</td>
+                <td class="text-white">{{gm_price}}</td>
+                <td class="text-white">{{gm_amount}}</td>
+                <td>
+                        <a href="javascript:void(0);" class="btn btn-info m-1 edit" 
+                        data-id="{{gm_id}}" 
+                        data-nombre="{{gm_name}}" 
+                        data-desarrollador="{{gm_dev}}"
+                        data-lanzamiento="{{gm_release}}"
+                        data-plataforma="{{gm_device}}"
+                        data-categoria="{{gm_category}}"
+                        data-precio="{{gm_price}}"
+                        data-cantidad="{{gm_amount}}"
+                        >                  
+                        Editar
+                        </a>    
+                        <a href="javascript:void(0);" class="btn btn-danger m-1 delete" data-id="{{gm_id}}"> 
+                        Borrar
+                        </a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    </div></div>
+</div>
+</div>
+
+{{!-- AÑADIR Modal --}}
+{{!-- /EDITAR  --}}
+<form action="/update" method="post">
+<div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel"> Editar información del juego </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-target="#my-modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Nombre:</span>
+                    <input type="text" name="nombre" class="form-control g-nombre" required>
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Desarrollador:</span>
+                    <input type="text" name="desarrollador" class="form-control g-desarrollador" required>
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Año de lanzamiento:</span>
+                    <input type="number" name="ano" class="form-control g-ano" min="1990" max="2099" step="1" required>
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Plataforma:</span>
+                    <select class="form-select g-plataforma" name="plataforma" aria-label="Default select example" required>
+                        <option value="PC">PC</option>
+                        <option value="Xbox">Xbox</option>
+                        <option value="PlayStation">PlayStation</option>
+                    </select>
+
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Categoría:</span>
+                    <select class="form-select g-categoria" name="categoria" aria-label="Default select example" required>
+                        <option value="Acción">Acción</option>
+                        <option value="Aventura">Aventura</option>
+                        <option value="Simulación">Simulación</option>
+                        <option value="Superhéroes">Superhéroes</option>
+                        <option value="Estrategia">Estrategia</option>
+                        <option value="Carreras">Carreras</option>
+                        <option value="Deportes">Deportes</option>
+                        <option value="Mundo Abierto">Mundo Abierto</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Precio:</span>
+                    <span class="input-group-text">$</span>
+                    <input type="number" name="precio" class="form-control g-precio" required>
+                </div>
+
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Cantidad:</span>
+                    <input type="number" name="cantidad" class="form-control g-cantidad" required>
+                </div>
+                <div class="modal-footer mt-3">
+                    <input type="hidden" name="id" class="edit-id">
+                <button type="submit" class="btn btn-primary">Agregar</button>
+                </div>
+                </div>
+            </div>
+            </div>
+</div>
+</form>
+{{!-- Modal delete --}}
+        <form id="add-row-form" action="/delete" method="post">
+            <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title " id="myModalLabel">Borrar Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-target="#my-modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body ">
+                    <strong>¿Estás seguro de borrar este elemento?</strong>
+                    </div>
+                    <div class="modal-footer">
+                    <input type="hidden" name="id" class="form-control pid2" required>
+                        <button type="submit" class="btn btn-success">Eliminar</button>
+                    </div>
+                        </div>
+                </div>
+            </div>
+        </form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+<script>
+$(document).ready(function(){
+    //Mostrar datos al modal para editar registro
+    $('#mytable').on('click', '.edit', function(){
+        let gm_id = $(this).data('id');
+        let gm_name = $(this).data('nombre');
+        let gm_dev = $(this).data('desarrollador');
+        let gm_release = $(this).data('lanzamiento');
+        let gm_device = $(this).data('plataforma');
+        let gm_category = $(this).data('categoria');
+        let gm_price = $(this).data('precio');
+
+        let gm_amount = $(this).data('cantidad');
+
+        $('#EditModal').modal('show');
+        $('.edit-id').val(gm_id);
+        $('.g-nombre').val(gm_name);
+        $('.g-desarrollador').val(gm_dev);
+        $('.g-ano').val(gm_release);
+        $('.g-plataforma').val(gm_device);
+        $('.g-categoria').val(gm_category);
+        $('.g-precio').val(gm_price);
+
+        $('.g-cantidad').val(gm_amount);
+
+    })
+    // Modal DELETE    
+    $('#mytable').on('click', '.delete', function(){
+        let prod_id = $(this).data('id');
+        $('#DeleteModal').modal('show');
+        $('.pid2').val(prod_id);
+    })
+})
+</script>

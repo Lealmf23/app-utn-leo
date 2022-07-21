@@ -1,0 +1,74 @@
+<div class="container primer-div">
+{{> paneladmin}}
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+
+
+{{!-- Mostramos los Productos en la Tabla --}}
+<div class="container ">
+
+    <h3 class="text-center">Ingresa los datos del producto</h3>
+<form action="/ingresar" method="post">
+
+            <div>
+            <div class="text-black">
+
+                <div class="modal-body">
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Nombre:</span>
+                    <input type="text" name="nombre" class="form-control" required>
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Desarrollador:</span>
+                    <input type="text" name="desarrollador" class=" form-control" required>
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Año de lanzamiento:</span>
+                    <input type="number" name="ano" class=" form-control" min="1990" max="2099" step="1" value="2016" required>
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Plataforma:</span>
+                    <select class="form-select" name="plataforma" aria-label="Default select example" required>
+                        <option value="PC">PC</option>
+                        <option value="Xbox">Xbox</option>
+                        <option value="PlayStation">PlayStation</option>
+                    </select>
+
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Categoría:</span>
+                    <select class="form-select" name="categoria" aria-label="Default select example" required>
+                        <option value="Acción">Acción</option>
+                        <option value="Aventura">Aventura</option>
+                        <option value="Simulación">Simulación</option>
+                        <option value="Superhéroes">Superhéroes</option>
+                        <option value="Estrategia">Estrategia</option>
+                        <option value="Carreras">Carreras</option>
+                        <option value="Deportes">Deportes</option>
+                        <option value="Mundo Abierto">Mundo Abierto</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+
+                </div>
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Precio:</span>
+                    <span class="input-group-text">$</span>
+                    <input type="number" name="precio" class=" form-control" required>
+                </div>
+
+                <div class="input-group mt-3">
+                    <span class="input-group-text">Cantidad:</span>
+                    <input type="number" name="cantidad" class=" form-control" required>
+                </div>
+                <div class="modal-footer mt-3">
+                <button type="submit" class="btn btn-primary">Agregar</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+        </form>
+</div></div></div>
+</div>

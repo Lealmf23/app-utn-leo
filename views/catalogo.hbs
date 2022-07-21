@@ -1,0 +1,57 @@
+<div class="container primer-div">
+
+    <div class="text-center m-4">
+        <hr>
+        <h1>{{titulo}}</h1>
+        <hr>
+    </div>
+
+{{!-- Mostramos los Productos en la Tabla --}}
+<div class="container">
+    <div class="mt-2 mb-2 text-center">
+            <a href="/catalogo" class="btn m-2 btn-info">Todos Los Juegos</a>
+            <a href="/pc" class="btn m-2 btn-info"><span class="bi bi-pc-display-horizontal"></span> PC</a>
+            <a href="/xbox" class="btn m-2 btn-info"><span class="bi bi-xbox"></span> Xbox</a>
+            <a href="/playstation" class="btn m-2 btn-info"><span class="bi bi-playstation"></span> Playstation</a>
+    </div>
+    <div class="table-responsive">
+ 
+    <table class="table table-striped text-white" id="mytable">
+        <div class="aviso-scroll">
+            <span class="bi bi-chevron-left"></span> desliza <span class="bi bi-chevron-right"></span>
+        <thead>
+                    
+        </div>
+            <tr>
+                <th>Nombre</th>
+                <th>Desarrollador</th>
+                <th>Lanzamiento</th>
+                <th>Plataforma</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Acción</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each results}}
+            <tr>
+                <td class="text-white"> {{gm_name}}</td>
+                <td class="text-white"> {{gm_dev}}</td>
+                <td class="text-white">{{gm_release}}</td>
+                <td class="text-white"> {{gm_device}}</td>
+                <td class="text-white"> {{gm_category}}</td>
+                <td class="text-white"> {{gm_price}}</td>
+                <td>
+                    <a href="/contacto" class="btn btn-primary"> 
+                        Comprar
+                        </a>
+                </td>
+
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    </div></div>
+</div>
+</div>

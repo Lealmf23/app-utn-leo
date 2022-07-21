@@ -1,0 +1,53 @@
+<div class="container primer-div">
+
+    <div class="text-center m-4">
+        <hr>
+        <h1>{{titulo}}</h1>
+        <hr>
+    </div>
+
+{{!-- Mostramos los Productos en la Tabla --}}
+<div class="container">
+    <div class="mt-2 mb-2 text-center">
+            <a href="/catalogo" class="btn m-2 btn-info">Todos Los Juegos</a>
+            <a href="/pc" class="btn m-2 btn-info"><span class="bi bi-pc-display-horizontal"></span> PC</a>
+            <a href="/xbox" class="btn m-2 btn-info"><span class="bi bi-xbox"></span> Xbox</a>
+            <a href="/playstation" class="btn m-2 btn-info"><span class="bi bi-playstation"></span> Playstation</a>
+    </div>
+    <div class="table-responsive">
+    <table class="table table-striped text-white" id="mytable">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Desarrollador</th>
+                <th>Plataforma</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Oferta</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each results}}
+            <tr>
+                <td class="text-white"> {{gm_name}}</td>
+                <td class="text-white"> {{gm_dev}}</td>
+                <td class="text-white"> {{gm_device}}</td>
+                <td class="text-white"> {{gm_category}}</td>
+                <td class="text-white"> {{gm_price}}</td>
+                <td class="text-white"> {{gm-off}}</td>
+                <td>
+                        <a href="javascript:void(0);" class="btn btn-info edit" data-id="{{prod_id}}" data-producto-nombre="{{prod_nombre}}" data-producto_precio="{{prod_precio}}"
+                        data-producto-descripcion="{{prod_descripcion}}" >                  
+                        Editar
+                        </a>    
+                        <a href="javascript:void(0);" class="btn btn-danger delete" data-id="{{ prod_id}}"> 
+                        Borrar
+                        </a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    </div></div>
+</div>
+</div>
